@@ -1,0 +1,4 @@
+bloessl2020hardware
+bloessl2019benchmarking
+west2015accelerating
+rondeau2013simd

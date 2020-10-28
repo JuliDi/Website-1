@@ -1,0 +1,6 @@
+<ol class="pub-list">
+  {% for key in keys %}
+    {% set data = load_data(path="cache/" ~ key ~ "-ref.shtml") %}
+    <li>{{ data | safe }}</li>
+  {% endfor %}
+</ol>

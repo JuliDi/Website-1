@@ -1,0 +1,169 @@
+{% if page.title %} 
+    {% set title = page.title ~ " | FutureSDR" %}
+{% elif section.title %} 
+    {% set title = section.title ~ " | FutureSDR" %}
+{% else %}
+    {% set title = "FutureSDR" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+
+    <meta name="description" content="FutureSDR, an async SDR runtime for heterogeneous architectures.">
+    <meta property="og:description" content="FutureSDR, an async SDR runtime for heterogeneous architectures.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:url" content="{{current_url}}">
+    <meta property="og:site_name" content="FutureSDR">
+    <meta property="og:image" content="https://www.futuresdr.org/img/futuresdr-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@bastibl">
+    <meta name="twitter:site" content="@FutureSDR">
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="alternate" href="/atom.xml" title="FutureSDR" type="application/atom+xml">
+    {% block css %}
+    {% endblock %}
+    <link href="/vendor/photoswipe/photoswipe.css" rel="stylesheet">
+    <link href="/vendor/photoswipe/default-skin/default-skin.css" rel="stylesheet">
+    <link href="/vendor/opensans/style.css" rel="stylesheet">
+    <link href="/css/futuresdr.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-8 offset-xl-2">
+            <a href="/"><img id="header-logo" alt="FutureSDR Project" src="/img/futuresdr-banner.svg"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<nav class="navbar sticky-top navbar-expand-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-8 offset-xl-2">
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+          <ul class="navbar-nav me-auto">
+              {% set home_class = "" %}
+              {% set learn_class = "" %}
+              {% set blog_class = "" %}
+              {% if "/learn/" in current_path %}
+                 {% set learn_class = "active" %}
+              {% elif "/blog/" in current_path %}
+                 {% set blog_class = "active" %}
+              {% else %}
+                 {% set home_class = "active" %}
+              {% endif %}
+              <li class="nav-item"><a class="nav-link {{home_class}}" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link {{learn_class}}" href="/learn/">Learn</a></li>
+              <li class="nav-item"><a class="nav-link {{blog_class}}" href="/blog/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://docs.rs/futuresdr">API Docs</a></li>
+          </ul>
+          <ul class="navbar-nav d-none d-md-flex">
+            <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://twitter.com/FutureSDR/"><i class="fab fa-twitter"></i></a></li>
+            <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://github.com/futuresdr/futuresdr"><i class="fab fa-github"></i></a></li>
+            <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://discord.com/invite/vCz29eDbGP/"><i class="fab fa-discord"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    {% block outer_content %}
+    <div class="col-lg-10 col-xl-8 offset-xl-2">
+      {% block content %}
+        {{ section.content | safe }}
+      {% endblock %}
+    </div>
+    {% endblock %}
+  </div>
+</div>
+
+{% block footer %}
+  <footer>
+    <div class="container">
+
+      &copy; Bastian Bloessl 2021
+      <ul id="socialmedia">
+        <li><a target="_blank" rel="noopener noreferrer"  href="https://www.github.com/futuresdr/futuresdr" class="fab fa-github"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer"  href="https://www.twitter.com/FutureSDR/" class="fab fa-twitter"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer"  href="https://discord.com/invite/vCz29eDbGP/" class="fab fa-discord"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer"  href="https://www.futuresdr.org/atom.xml" class="fa fa-rss"></a></li>
+        <li><a href="mailto:info@futuresdr.org" class="fas fa-envelope"></a></li>
+      </ul>
+    </div>
+  </footer>
+{% endblock %}
+
+<button id="top-link-block" type="button" href="#top" class="d-none btn btn-primary" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+  <i class="fa fa-chevron-up"></i>
+</button>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+        </button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+        </button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+<script src="/vendor/photoswipe/photoswipe.min.js"></script>
+<script src="/vendor/popper/popper-utils.min.js"></script>
+<script src="/vendor/popper/popper.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+{% block js %}
+{% endblock %}
+<script src="/js/futuresdr.js"></script>
+</body>
+</html>

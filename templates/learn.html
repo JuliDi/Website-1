@@ -1,0 +1,21 @@
+{% import "macros.html" as macros %}
+
+{% extends "index.html" %}
+
+{% block outer_content %}
+  <div class="col-xl-2 order-2 order-xl-1">
+    {{ macros::learn_sidebar(path=page.path) }}
+  </div>
+  <div class="col-lg-10 col-xl-8 order-1">
+    <h1>{{ page.title }}</h1>
+
+    {% block content %}
+      {{ page.content | safe }}
+    {% endblock %}
+
+    <hr />
+
+    {{ macros::learn_navigation(path=page.path) }}
+
+  </div>
+{% endblock %}

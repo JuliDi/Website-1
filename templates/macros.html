@@ -1,0 +1,86 @@
+{% macro learn_sidebar(path, root="") %}
+
+  {% set index = load_data(path="content/learn/sitemap.json") %}
+
+  {% if root == "" %}
+    {% set top = index["root"] %}
+  {% else %}
+    {% set index = index["root"][root] %}
+    {% if index is containing("sub") %}
+      {% set top = index["sub"] %}
+    {% endif %}
+  {% endif %}
+
+  {% if top is defined %}
+  <ul class="learn">
+      {% for my_path, page in top %}
+        {% if path is ending_with(my_path) %} 
+            <li class="active"><a href="{{ my_path }}">{{ page["title"] }}</a></li>
+        {% else %}
+            <li><a href="{{ my_path }}">{{ page["title"] }}</a></li>
+        {% endif %}
+
+            {% if page is containing("sub") %}
+            <ul>
+            {% for my_path, page in page["sub"] %}
+                {% if path is ending_with(my_path) %} 
+                    <li class="active"><a href="{{ my_path }}">{{ page["title"] }}</a></li>
+                {% else %}
+                    <li><a href="{{ my_path }}">{{ page["title"] }}</a></li>
+                {% endif %}
+            {% endfor %}
+                    </ul>
+            {% endif %}
+      {% endfor %}
+  </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro learn_navigation(path) %}
+  {% set index = load_data(path="content/learn/sitemap.json") %}
+  {% set top = index["root"] %}
+  {% set pages = [] %}
+
+  {% for my_path, page in top %}
+    {% set_global pages = pages | concat(with=[my_path, page.title]) %} 
+    {% if page is containing("sub") %}
+      {% for my_path, page in page["sub"] %}
+         {% set_global pages = pages | concat(with=[my_path, page.title]) %} 
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  {% set index = -1 %}
+  {% for p in pages %}
+    {% if p == path %}
+      {% set_global index = loop.index0 %}
+    {% endif %}
+  {% endfor %}
+
+  {% if index == -1 %}
+    {{ throw(message="learn_navigation: current page not found in sitemap") }}
+  {% endif %}
+
+  <div class="learn-navigation d-flex justify-content-between">
+  {% if index > 0 %}
+    {% set url = pages | nth(n=index-2) %}
+    {% set title = pages | nth(n=index-1) %}
+    <a type="button" class="btn btn-outline-dark" href="{{ url }}">
+      <span class="fa fa-angle-double-left"></span> {{ title }}
+    </a>
+  {% endif %}
+
+  {% if index + 2 < pages | length %}
+    {% set url = pages | nth(n=index+2) %}
+    {% set title = pages | nth(n=index+3) %}
+    <a type="button" class="btn btn-outline-dark" href="{{ url }}">
+      {{ title }} <span class="fa fa-angle-double-right"></span>
+    </a>
+  {% endif %}
+
+  </div>
+  {# index #}
+  {# pages | json_encode() #}
+
+{% endmacro %}
+

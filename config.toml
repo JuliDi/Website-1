@@ -1,0 +1,8 @@
+base_url = "https://www.futuresdr.org"
+build_search_index = true
+compile_sass = true
+generate_feed = true
+output_dir = "dist"
+
+[markdown]
+highlight_code = true

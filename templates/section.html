@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+{% for post in section.pages %}
+<article>
+  <h2 id="{{post.slug}}"><a href="{{ post.path }}">{{ post.title }}</a></h2>
+
+  <div class="blog-entry">
+    <div class="date"><i class="fa fa-calendar"></i> {{ post.date }}</div>
+
+    {% if post.summary %}
+        {{ post.summary | safe }}
+
+    <a type="button" class="btn btn-outline-dark" href="{{ post.path }}#continue-reading">read more <span class="fa fa-angle-double-right"></span></a>
+    {% else %}
+        {{ post.content | safe }}
+    {% endif %}
+  </div>
+</article>
+
+{% if not loop.last %}
+    <hr />
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block content %}
+<article>
+  <h2 id="{{page.slug}}">{{ page.title }}</h2>
+
+  <div class="blog-entry">
+    <div class="date"><i class="fa fa-calendar"></i> {{ page.date }}</div>
+
+    {{ page.content | safe }}
+  </div>
+</article>
+{% endblock %}

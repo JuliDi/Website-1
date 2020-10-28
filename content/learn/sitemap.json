@@ -1,0 +1,29 @@
+{
+    "root": {
+        "/learn/" : {
+            "title" : "Introduction"
+        },
+        "/learn/concepts/" : {
+            "title" : "Concepts",
+            "sub" : {
+                "/learn/concepts/block/" : {
+                    "title": "Block"
+                },
+                "/learn/concepts/runtime/" : {
+                    "title": "Runtime"
+                }
+            }
+        },
+        "/learn/accelerators/" : {
+            "title": "Accelerators",
+            "sub": {
+                "/learn/accelerators/vulkan/" : {
+                    "title": "Vulkan"
+                },
+                "/learn/accelerators/zynq/" : {
+                    "title": "Zynq"
+                }
+            }
+        }
+    }
+}

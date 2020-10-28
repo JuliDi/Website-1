@@ -1,0 +1,32 @@
+<div class="images">
+{% for image in images %}
+    {% if page.path %}
+        {% set url = page.path %}
+    {% elif post.path %}
+        {% set url = post.path %}
+    {% else %}
+        {% set url = "" %}
+    {% endif %}
+
+    {% set img = image[0] %}
+
+    {% if image | length > 1 %}
+    {% set width = image[1] %}
+    {% else %}
+    {% set width = 100 %}
+    {% endif %}
+
+    {% if image | length > 2 %}
+    {% set title = image[2] %}
+    {% else %}
+    {% set title = '' %}
+    {% endif %}
+
+    {% if image | length > 3 %}
+        {% set max = image[3] %}
+        <img class="lightbox fig-{{width}}" src="{{ url ~ img }}" style="max-width: {{max}}px" alt="{{title}}">
+    {% else %}
+        <img class="lightbox fig-{{width}}" src="{{ url ~ img }}" alt="{{title}}">
+    {% endif %}
+{% endfor %}
+</div>

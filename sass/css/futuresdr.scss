@@ -1,0 +1,305 @@
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../node_modules/highlight.js/scss/base16/gruvbox-dark-pale";
+
+$my-white: #ecf4f3;
+$my-green: #589068;
+$my-blue: #396b9a;
+$my-mix: #2a628c;
+$my-light-gray: #ddd;
+$my-gray: #545454;
+$my-black: #343a40;
+
+$header-color: $my-light-gray;
+
+// bootstrap
+$font-family-sans-serif: "Open Sans", sans-serif;
+$headings-font-weight: bold;
+$text-color: $my-black;
+$btn-focus-width: 0px;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-color: $my-white;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $my-gray;
+}
+
+hr {
+    margin: 1.7rem 0;
+}
+
+#continue-reading {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+}
+
+.ratio {
+    margin-bottom: 1rem;
+}
+
+
+// ---------------------------- Twitter ----------------------------
+blockquote.twitter-tweet {
+    align: center;
+}
+
+// ---------------------------- Code ----------------------------
+pre {
+    code {
+        padding: 0.6rem;
+        display: block;
+    }
+}
+
+// ---------------------------- Learn ----------------------------
+ul.learn {
+    list-style: none;
+    padding-left: 0;
+    li {
+        margin-bottom: 0.25rem;
+        &.active {
+            font-weight: bold;
+        }
+        a {
+            color: $my-mix;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+            padding-left: 1rem;
+            margin-left: 0;
+            margin-bottom: 0;
+            border-left: 2px solid lighten($my-green, 30%);
+            &.active {
+                border-left: 2px solid $my-green;
+            }
+        }
+    }
+}
+
+.learn-navigation {
+    margin-bottom: 1.7rem;
+}
+
+// ---------------------------- Navbar ----------------------------
+.navbar {
+    background-color: $my-green;
+    margin-bottom: 2rem;
+
+    div.container {
+        display: block;
+    }
+
+    a {
+        color: $my-white;
+        &.active {
+            background-color: lighten($my-green, 6);
+        }
+        &:hover {
+            color: $my-white;
+            background-color: darken($my-green, 6);
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: 0;
+        a {
+            padding: 1.4rem 1.1rem !important;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        li {
+            display: block;
+        }
+    }
+}
+
+// ----------------------------- Header ----------------------------
+header {
+    background-color: $header-color;
+    img#header-logo {
+        margin: 2em 0;
+        width: 100%;
+        display: block;
+        @include media-breakpoint-up(md) {
+            margin: 3em 0;
+        }
+    }
+}
+
+// --------------------------- Top Link ----------------------------
+#top-link-block {
+    position: fixed;
+    bottom: 18px;
+    left: 10px;
+    background-color: $my-black;
+    border: none;
+}
+
+// ----------------------------- Footer ----------------------------
+footer {
+	background-color: $my-gray;
+    color: rgba(255,255,255,.6);
+    margin-top: 4rem;
+	padding-top: 5em;
+    padding-bottom: 5em;
+    text-align: center;
+
+    #socialmedia {
+        cursor: default;
+        padding-left: 0;
+        font-size: 1.5em;
+        list-style: none;
+        margin: 1em 0 0em;
+        li {
+            display: inline-block;
+            line-height: 2;
+            margin: 0 .5em;
+            a {
+                color: rgba(255, 255, 255, .5);
+                border-bottom: none;
+                text-decoration: none;
+                transition: color 0.2s ease-in-out, color 0.2s ease-in-out;
+                &:hover {
+                    color: rgba(255, 255, 255, .7);
+                }
+            }
+        }
+    }
+}
+
+// ------------------------------ Blog ------------------------------
+.blog-entry {
+    .date {
+        border-left: 3px solid gray;
+        padding: 1em;
+        margin-bottom: 1em;
+        i {
+            margin-right: 4px;
+        }
+    }
+}
+
+h2 {
+    a {
+        color: $my-gray;
+        text-decoration: none;
+        &:hover {
+            color: $my-black;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ----------------------------- Publications ----------------------------
+#publications {
+    .x-small {
+        font-size: 0.75em;
+    }
+    h2.x-small{
+        margin-top: 4em;
+        font-size: 1em;
+    }
+    li {
+        margin-bottom: .5em;
+    }
+
+    p.x-small {
+        margin-bottom: 1em;
+    }
+}
+
+ul.pub-list,
+ol.pub-list {
+    li {
+        img {
+            vertical-align: baseline;
+            margin-bottom: -1px;
+            border: none;
+        }
+    }
+}
+
+// --------------------------- Images ----------------------------
+img.lightbox {
+    cursor: zoom-in;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: .9rem;
+
+    img {
+        display: block;
+
+        padding: 5px;
+        margin-left: auto;
+        margin-right: auto;
+
+        &.fig-100 {
+            width: 100%;
+        }
+
+        &.fig-50 {
+            width: 50%;
+        }
+
+        &.fig-33 {
+            width: 33.33%;
+        }
+    }
+}
+
+
+// ----------------------------- Publications ----------------------------
+#publications {
+    .x-small {
+        font-size: 0.75em;
+    }
+    h2.x-small{
+        margin-top: 4em;
+        font-size: 1em;
+    }
+    li {
+        margin-bottom: .5em;
+    }
+
+    p.x-small {
+        margin-bottom: 1em;
+    }
+}
+
+ul.pub-list,
+ol.pub-list {
+    li {
+        img {
+            vertical-align: baseline;
+            margin-bottom: -1px;
+            border: none;
+        }
+    }
+}
+
