@@ -9,6 +9,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "bootstrap": "^5.1.0",
+        "fontawesome-free": "^1.0.4",
         "highlight.js": "^11.2.0",
         "jquery": "^3.6.0",
         "opensans-npm-webfont": "^1.0.0",

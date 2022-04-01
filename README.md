@@ -2,8 +2,9 @@
 
 To build the website:
 
-- Install [npm](https://docs.npmjs.com/).
-- Run `npm install`.
+- Install nodejs
+- Install [npm](https://docs.npmjs.com/) if it is not already installed by default via nodejs.
+- Run `npm install fontawesome-free`
 - Install [Zola](https://www.getzola.org/).
 - Run `zola build` or `zola serve`.
 
