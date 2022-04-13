@@ -7,7 +7,7 @@
     "private": false,
     "license": "MIT",
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.4",
+		"@fortawesome/fontawesome-free": "^5.15.4",
         "bootstrap": "^5.1.0",
         "highlight.js": "^11.2.0",
         "jquery": "^3.6.0",

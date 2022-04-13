@@ -2,8 +2,10 @@
 
 To build the website:
 
-- Install [npm](https://docs.npmjs.com/).
-- Run `npm install`.
+- Install nodejs
+- Install [npm](https://docs.npmjs.com/) if it is not already installed by default via nodejs.
+- Change into the project directory
+- Run `npm install`
 - Install [Zola](https://www.getzola.org/).
 - Run `zola build` or `zola serve`.
 
