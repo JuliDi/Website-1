@@ -68,9 +68,12 @@ Check the bBladeRF functionality with the integrated CLI:
 
 `bladeRF-cli -p`
 
+###### LimeSDR
+https://wiki.myriadrf.org/Lime_Suite#Ubuntu_PPA
 
 ### macOS
 Feel free to contribute, if you own a Mac.
+https://wiki.myriadrf.org/Lime_Suite#OSX_homebrew
 
 ### Windows
 
